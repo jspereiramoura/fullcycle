@@ -8,3 +8,6 @@ RUN apk update --no-cache \
     && apk add --no-cache wget openssl \
     && wget -4 -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | tar xzf - -C /usr/local/bin \
     && apk del wget
+
+COPY package.json .
+RUN yarn

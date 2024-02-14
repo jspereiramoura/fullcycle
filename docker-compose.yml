@@ -35,7 +35,7 @@ services:
     container_name: app
     restart: on-failure
     entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
-    command: node main.cjs
+    command: node src/main.cjs
     ports:
       - "80:3000"
     depends_on:
@@ -43,7 +43,7 @@ services:
     networks:
       - nodenet
     volumes:
-      - ./app:/var/www/html
+      - ./app/src:/var/www/html/src
 
 networks:
   nodenet:
